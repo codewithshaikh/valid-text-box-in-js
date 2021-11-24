@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>valid text box</title>
+</head>
+<body>
+
+	<!-- {
+		1 empty
+		2 minimum 3 
+		3 maximum 20
+		4 regular exprasion  // number and chater not allow// (only text)\
+
+	} -->
+
+
+
+	<script>
+		function myfun(){
+
+			var correct_way = /^[A-Za-z]+$/;
+
+			var a = document .getElementById('User_Name').value;
+			if (a=="") {
+				document .getElementById("messages").innerHTML="** Please Fill UserName";
+				return false;
+			}
+			if (a.length<3) {
+				document .getElementById("messages").innerHTML="** UserName must be 3 character ";
+				return false;
+			}
+
+			if (a.length>20) {
+				document .getElementById("messages").innerHTML="** UserName must be less than 20 character ";
+				return false;
+			}
+
+			if (a.match(correct_way))
+				true;
+			else{
+				document .getElementById("messages").innerHTML="** 0nly alphabets are allowed";
+				return false;
+			}
+
+
+
+		}
+	</script>
+
+
+
+	<h1 style="color: green; text-align: center;"> Valid user name ?</h1>
+
+	<form onsubmit="return myfun()">
+
+
+		UserName : <input type="text" name="Email" id="User_Name"  value="">  
+		<span id="messages" style="color: red"> </span>
+		<br><br>
+		<input type="submit" name="submit" value="Submit"> </input>
+
+	</form>
+
+
+</body>
+</html>
